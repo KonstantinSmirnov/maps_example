@@ -1,3 +1,12 @@
 <h1>Please enter your direction</h1>
 <%= link_to 'Bing maps', '#', class: 'btn btn-default' %>
 <%= link_to 'Google maps', '#', class: 'btn btn-default' %>
+
+<hr>
+
+<p>Users:</p>
+<ul>
+  <% @users.each do |u| %>
+    <li><%= u.name %></li>
+  <% end %>
+</ul>
