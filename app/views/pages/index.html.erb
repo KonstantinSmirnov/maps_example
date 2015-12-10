@@ -4,8 +4,6 @@
   <fieldset class="form-group">
     <label>Address:</label>
     <input type="text" class="form-control" id="autocompleteGoogle"/>
-    <input type="hidden" id="addressLatitudeGoogle"/>
-    <input type="hidden" id="addressLongitudeGoogle"/>
     <small class="text-muted">Please enter your address in format <b>Street, City, Country</b>.</small>
   </fieldset>
   <button type="submit" id="saveResultGoogle" class="btn btn-primary" style="display: none">Save result</button>
@@ -14,6 +12,14 @@
 <%= simple_form_for @user do |f| %>
   <div class="form-inputs">
     <%= f.input :name %>
+    <%= f.input :latitude,
+      :input_html => {
+        :id => "addressLatitudeGoogle"
+      } %>
+    <%= f.input :longitude,
+      :input_html => {
+        :id => "addressLongitudeGoogle"
+      } %>
   </div>
 <% end %>
 
