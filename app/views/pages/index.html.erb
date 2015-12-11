@@ -29,10 +29,17 @@
 
 <hr>
 
-<p>Users:</p>
-<ul>
-  <% @users.each do |u| %>
-    <li><%= u.name %>
-        <%= u.longitude %></li>
-  <% end %>
-</ul>
+<table class="table">
+  <thead>
+    <tr>
+    <th><span>User</span></th>
+    <th><span>Created</span></th>
+    <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |u| %>
+      <%= render :partial => 'users/user', locals: { user: u } %>
+    <% end %>
+  </tbody>
+</table>
