@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20151210185744) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
+    t.string   "city"
     t.boolean  "display_on_map",                           default: true
     t.decimal  "latitude",       precision: 15, scale: 10
     t.decimal  "longitude",      precision: 15, scale: 10

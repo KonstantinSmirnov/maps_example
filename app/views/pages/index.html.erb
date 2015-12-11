@@ -20,6 +20,10 @@
         :input_html => {
           :id => "addressLongitudeGoogle"
         } %>
+      <%= f.input :city, :as => :hidden,
+        :input_html => {
+          :id => "cityGoogle"
+          } %>
     </div>
     <div class="form-inputs">
     <%= f.button :submit, class: 'btn btn-success' %>
@@ -33,6 +37,7 @@
   <thead>
     <tr>
     <th><span>User</span></th>
+    <th><span>City</span></th>
     <th><span>Created</span></th>
     <th>&nbsp;</th>
     </tr>

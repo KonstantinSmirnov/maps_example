@@ -28,6 +28,7 @@ ready = function(){
     $("#searchResultsGoogle").empty().append('Result: ' + place.name + ' (Latitude: ' + place.geometry.location.lat() + ' Longitude: ' + place.geometry.location.lng() + ')');
     $("#addressLatitudeGoogle").val(place.geometry.location.lat);
     $("#addressLongitudeGoogle").val(place.geometry.location.lng);
+    $("#cityGoogle").val(place.address_components[2].long_name);
     $("#saveResultGoogle").show();
   }
   // [END region_fillform]
