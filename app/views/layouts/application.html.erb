@@ -16,6 +16,8 @@
       <%= render 'layouts/header' %>
       <div class="panel panel-default">
         <div class="panel-body">
+          <%= render partial: '/shared/messages' %>
+
           <%= yield %>
         </div>
       </div>

@@ -4,31 +4,35 @@
   <fieldset class="form-group">
     <label>Address:</label>
     <input type="text" class="form-control" id="autocompleteGoogle"/>
-    <small class="text-muted">Please enter your address in format <b>Street, City, Country</b>.</small>
+    <small class="text-muted" id="searchResultsGoogle">Please enter your address in format <b>Street, City, Country</b>.</small>
   </fieldset>
-  <button type="submit" id="saveResultGoogle" class="btn btn-primary" style="display: none">Save result</button>
 </form>
 
-<%= simple_form_for @user do |f| %>
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :latitude,
-      :input_html => {
-        :id => "addressLatitudeGoogle"
-      } %>
-    <%= f.input :longitude,
-      :input_html => {
-        :id => "addressLongitudeGoogle"
-      } %>
-  </div>
-<% end %>
+<div id="saveResultGoogle" style="display: none">
+  <%= simple_form_for @user do |f| %>
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :latitude, :as => :hidden,
+        :input_html => {
+          :id => "addressLatitudeGoogle"
+        } %>
+      <%= f.input :longitude, :as => :hidden,
+        :input_html => {
+          :id => "addressLongitudeGoogle"
+        } %>
+    </div>
+    <div class="form-inputs">
+    <%= f.button :submit, class: 'btn btn-success' %>
+    </div>
+  <% end %>
+</div>
 
 <hr>
-<small class="" id="searchResultsGoogle"></small>
 
 <p>Users:</p>
 <ul>
   <% @users.each do |u| %>
-    <li><%= u.name %></li>
+    <li><%= u.name %>
+        <%= u.longitude %></li>
   <% end %>
 </ul>
