@@ -10,6 +10,7 @@ ready = function(){
   // of the Google Places API to help users fill in the information.
 
   var placeSearch, autocomplete;
+  var cityName='';
   // Create the autocomplete object, restricting the search to geographical
   // location types.
 
@@ -28,10 +29,17 @@ ready = function(){
     $("#searchResultsGoogle").empty().append('Result: ' + place.name + ' (Latitude: ' + place.geometry.location.lat() + ' Longitude: ' + place.geometry.location.lng() + ')');
     $("#addressLatitudeGoogle").val(place.geometry.location.lat);
     $("#addressLongitudeGoogle").val(place.geometry.location.lng);
-    $("#cityGoogle").val(place.address_components[2].long_name);
+    $.each(place.address_components, function (i, address_component) {
+      if (address_component.types[0] == "locality"){
+          cityName = address_component.long_name;
+      };
+
+    });
+    $("#cityGoogle").val(cityName);
     $("#saveResultGoogle").show();
   }
   // [END region_fillform]
+
 
 };
 
